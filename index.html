@@ -1,63 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Play the game!</title>
-</head>
-<body>
     
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<div class="app">
+    <div class="scores">
+        <p class="round">Round: </p>
+        <h2 class="score">Player vs computer</h2>
+
+    </div>
+    <div class="buttons">
+        <button id="scissor">Scissor</button>
+        <button id='stone'>Stone</button>
+        <button id="paper">Paper</button>
+    </div>
+</div>
+<script src="app.js"></script>
 </body>
-<script>
-    const computerPlay = () => {
-        const gun = ['rock','paper','scissor']
-        const randomGun = Math.floor(Math.random()*gun.length)
-        return gun[randomGun]
-    }
-    let userScore = 0
-    let computerScore = 0
-    const finalMessage = (round) => {
-        if (userScore>computerScore) {
-            return `User won with score of ${userScore}:${computerScore} points in the ${round} round!`
-        } else return `Computer won with score of ${computerScore}:${userScore} points in the ${round} round!`
-    }
-   const playRound = () => {
-    const playerSelection = prompt("Select weapon").toLowerCase()
-    const computerSelection = computerPlay()
-        console.log(playerSelection,computerSelection, userScore, computerScore)
-        const lose = () => {
-           computerScore ++
-           console.log(`You Lose! ${computerSelection} beats ${playerSelection}`) 
-            
-        }
-        const won = () => { 
-            userScore ++
-            console.log("You won")
-       
-        }
-        if (playerSelection === 'rock' && computerSelection === "paper" || 
-        playerSelection === 'paper' && computerSelection === "scissor" || 
-        playerSelection === 'scissor' && computerSelection === "rock" ) {
 
-             lose()
-        } 
-        else if (playerSelection===computerSelection){
-            console.log ("Handed over. Try again!")
-        }
-        else  won()
-        }
-
-
-    const game  = () => {
-        
-        let round = 0
-        
-        while ((userScore < 5) && (computerScore < 5)) {
-            playRound()
-            round ++ 
-        } 
-        console.log(finalMessage(round))
-        }
-   game()
-    </script>
 </html>

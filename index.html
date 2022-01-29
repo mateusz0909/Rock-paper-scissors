@@ -6,20 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Play the game!</title>
     
+    
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 <div class="app">
     <div class="scores">
-        <p class="round">Round: </p>
-        <h2 class="score">Player vs computer</h2>
+        <p class="round">Round: 0</p>
+        <h2 class="score">Player vs computer 0:0</h2>
 
     </div>
     <div class="buttons">
-        <button id="scissor">Scissor</button>
-        <button id='stone'>Stone</button>
-        <button id="paper">Paper</button>
+        <button id="scissor"> <span><i class="fi fi-rr-scissors"></i></span></button>
+        <button id='stone'><i class="fi fi-rr-spa"></i></button>
+        <button id="paper"><i class="fi fi-rr-document"></i></button>
+    </div>
+    <div class="displayMessage">
+        <h3 class="message"></h3>
     </div>
 </div>
 <script src="app.js"></script>

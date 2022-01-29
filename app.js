@@ -8,10 +8,21 @@ let computerScore = 0
 let round = 0
 const btns = document.querySelectorAll('button')
 btns.forEach((btn)=>{
-    btn.addEventListener('click', (event) => playRound(event))
+    btn.addEventListener('click', (event) => {      
+        playRound(event)
+    } )
 })
 const score = document.querySelector('.score')
 const roundText = document.querySelector('.round')
+const message = document.querySelector('.message')
+let toDisplay = ''
+const resetGame = () => {
+    round = 0 
+    userScore = 0 
+    computerScore = 0
+    score.innerText= `Player vs computer 0:0`
+
+}
 
 
 const playRound = (event) => {
@@ -22,13 +33,18 @@ const playRound = (event) => {
     console.log(playerSelection, computerSelection, userScore, computerScore)
     const lose = () => {
         computerScore++
-        console.log(`You Lose! ${computerSelection} beats ${playerSelection}`)
+        
         score.innerText = `Player vs computer ${userScore}:${computerScore}`
+        toDisplay = `You Lose! ${computerSelection} beats ${playerSelection}`
+        finalMessage(round)
+
     }
     const won = () => {
         userScore++
-        console.log("You won")
         score.innerText = `Player vs computer ${userScore}:${computerScore}`
+        toDisplay = `You won!`
+        finalMessage(round)
+
 
     }
     if (playerSelection === 'rock' && computerSelection === "paper" ||
@@ -36,17 +52,27 @@ const playRound = (event) => {
         playerSelection === 'scissor' && computerSelection === "rock") {
 
         lose()
+        
     } else if (playerSelection === computerSelection) {
-        console.log("Handed over. Try again!")
+        toDisplay = "Handed over. Try again!"
     } else won()
+    
+
   
 }
 
 const finalMessage = (round) => {
-    if (userScore > computerScore) {
-        return `User won with score of ${userScore}:${computerScore} points in the ${round} round!`
-    } else return `Computer won with score of ${computerScore}:${userScore} points in the ${round} round!`
-}
+    if((userScore > 4)||(computerScore>4)){
+        if (userScore > computerScore) {
+            message.innerText= `User won with the score of ${userScore}:${computerScore} points in the ${round} round!`
+        } else message.innerText= `Computer won with the score of ${computerScore}:${userScore} points in the ${round} round!`
+    }
+    }
+    
+
+(()=>{if((userScore > 4)||(computerScore>4)){
+    finalMessage(round)
+}})
 
 // const game = () => {
 

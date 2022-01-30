@@ -64,8 +64,8 @@ const playRound = (event) => {
 const finalMessage = (round) => {
     if((userScore > 4)||(computerScore>4)){
         if (userScore > computerScore) {
-            message.innerText= `User won with the score of ${userScore}:${computerScore} points in the ${round} round!`
-        } else message.innerText= `Computer won with the score of ${computerScore}:${userScore} points in the ${round} round!`
+            message.innerText= `User won with the score of ${userScore}:${computerScore} points in the ${round}th round!`
+        } else message.innerText= `Computer won with the score of ${computerScore}:${userScore} points in the ${round}th round!`
     }
     }
     

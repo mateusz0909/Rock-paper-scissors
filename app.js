@@ -12,6 +12,8 @@ btns.forEach((btn)=>{
         playRound(event)
     } )
 })
+
+const buttonsSection = document.querySelector('.buttons')
 const score = document.querySelector('.score')
 const roundText = document.querySelector('.round')
 const message = document.querySelector('.message')
@@ -65,10 +67,14 @@ const finalMessage = (round) => {
     if((userScore > 4)||(computerScore>4)){
         if (userScore > computerScore) {
             message.innerText= `User won with the score of ${userScore}:${computerScore} points in the ${round}th round!`
+            hidebuttons()
         } else message.innerText= `Computer won with the score of ${computerScore}:${userScore} points in the ${round}th round!`
+        hidebuttons()
     }
     }
-    
+const hidebuttons = () => {
+    buttonsSection.style.display = 'none'
+}    
 
 (()=>{if((userScore > 4)||(computerScore>4)){
     finalMessage(round)
